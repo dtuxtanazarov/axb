@@ -1,0 +1,18 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css'%}">
+<header>
+    <h1>
+        <a href="{%url 'home' %}">Home sahifa</a>
+    </h1>
+</header>
+{% if user.is_authenticated %}
+<p> Xush kelibsiz, {{user.username}}</p>
+<p> <a href="{%url 'logout' %}"> LogOut</a> </p>
+{% else %}
+<p>
+    <a href="{%url 'login'%}">LogIn</a> |
+    <a href="{%url 'signup'%}">SignUp</a>
+</p>
+{% endif %}
+{%block content%}
+{%endblock content%}

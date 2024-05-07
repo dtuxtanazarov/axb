@@ -1,0 +1,17 @@
+{%extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{%block content%}
+
+{%for post in object_list %}
+<h1> <a href=" {%url 'detail' post.pk%}"> {{post.title}} </a></h1>
+<h3> {{post.text | slice:":100"}} </h3>
+{%endfor%}
+{%endblock content%}
+</body>
+</html>
